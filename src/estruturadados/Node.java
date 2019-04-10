@@ -1,13 +1,11 @@
 
 
 
-package estruturadados;
-
-
+package estrutura.de.dados;
 
 
 public class Node {
-    
+ 
     private Integer informacao;
     private Node proximo;
     
@@ -31,9 +29,6 @@ public class Node {
     public Node getProx(){
         return proximo;
     }
-    
-    
-    
     
     
 }

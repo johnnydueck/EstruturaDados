@@ -1,16 +1,14 @@
 
+package estrutura.de.dados;
 
 
-package estruturadados;
-
-
-
-public class listaEncadeada {
+public class ListaEncadeada {
     
     private Node lista;
     private int cont = 0;
+    private Node ultimo;
     
-    public listaEncadeada(){
+    public ListaEncadeada(){
         lista = null;
     }
     
@@ -22,6 +20,7 @@ public class listaEncadeada {
             n.setProximo(null);
             lista = n;
             cont++;
+            ultimo = lista;
         }else{
             n.setProximo(lista);
             lista = n;
@@ -32,17 +31,13 @@ public class listaEncadeada {
     
     public void insereUltimo(int info){
         Node n = new Node();
-     
-        if(lista != null){
-            lista = lista.getProx();
-        }else{
-            lista = n;
-            lista.setInfo(info);
-            lista.setProximo(null);
-            cont++;
-        }
         
-                   
+        n.setProximo(null);
+        n.setInfo(info);        
+        ultimo.setProximo(n);
+        ultimo = n;        
+        cont++;
+     
      }
         
                 
@@ -53,21 +48,19 @@ public class listaEncadeada {
         while(listaImpressao != null){
             System.out.println("Info: "+listaImpressao.getInfo());
             System.out.println("Prox: "+ listaImpressao.getProx());
+            System.out.println("Ultimo: "+ultimo.getInfo());
+            
             listaImpressao = listaImpressao.getProx();
         }
     }
     
     public boolean vazia(){
-        if(lista == null)
-            return true;
-        else
-            return false;
+        return lista == null;
     }
     
     public Node getLista(){
         return lista;
     }
-    
     
     
 }
